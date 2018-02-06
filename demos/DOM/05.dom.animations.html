@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+  <style>
+    .black-box {
+      width: 40px;
+      height: 40px;
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="my-class black-box"></div>
+
+  <script>
+    var el = document.querySelector(".my-class");
+
+    const start = window.performance.now()
+    const duration = 2000
+
+    // now will be the returned value by window.performance.now()
+    // when the function has been invoked
+    function fadeIn(now) {
+      const progress = now - start
+      el.style.opacity = 1 - progress / duration
+
+      if (progress < duration) {
+        window.requestAnimationFrame(fadeIn)
+      }
+    }
+
+    window.requestAnimationFrame(fadeIn)
+
+  </script>
+</body>
+
+</html>

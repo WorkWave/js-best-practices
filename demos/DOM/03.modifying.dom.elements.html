@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <div class="my-class bar"></div>
+
+  <script>
+    var el = document.querySelector(".my-class");
+
+    // new elements
+    const newEl = document.createElement('p')
+    const newText = document.createTextNode('some text')
+
+    // Create a clone
+    var deepClone = false
+    var elClone = el.cloneNode(deepClone)
+
+    // Append elClone as the last child of element2
+    el.appendChild(elClone)
+    console.log(el)
+
+    // Insert elClone as child of el, right before newEl
+    el.insertBefore(newEl, elClone)
+
+    // remove an element
+    elClone.parentNode.removeChild(elClone)
+
+
+    // --------------------------------------
+    // Element properties (distructive)
+
+    // Replace the inner HTML
+    el.innerHTML = '<div>'
+      + '<h2>New content</h2>'
+      + '<p>beep boop beep boop</p>'
+      + '</div>'
+
+    // Remove all child nodes
+    el.innerHTML = null
+
+    // Append to the inner HTML
+    el.innerHTML += '<a href="foo.html">continue reading...</a> < hr />'
+
+    // --------------------------------------
+    // Appending elements (not-distructive)
+
+    const link = document.createElement('a')
+    const text = document.createTextNode('continue reading...')
+    const hr = document.createElement('hr')
+
+    // will cause two redraws
+    link.href = 'foo.html'
+    link.appendChild(text)
+    el.appendChild(link)
+    el.appendChild(hr)
+
+    // will cause a single redraws
+    const fragment = document.createDocumentFragment()
+    fragment.appendChild(text)
+    fragment.appendChild(hr)
+    el.appendChild(fragment)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    function sumFactory(first) {
+      return function (second) {
+        return first + second;
+      };
+    }
+
+    var addSix = sumFactory(6);
+    console.log(addSix(4));
+    console.log(addSix(33));
+  </script>
+</body>
+
+</html>

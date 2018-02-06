@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures (IIFE)</title>
+</head>
+
+<body>
+  <script>
+    // automatically executed
+    (function () {
+      console.log('IIFE log');
+    }());
+
+    // IIFE can return values
+    var name = (function () {
+      return 'Matteo';
+    }());
+    console.log(name)
+
+    // IIFE can accept values
+    var userName = 'Mike'
+    var dynamicName = (function (input) {
+      return input;
+    }(userName));
+    console.log(dynamicName)
+  </script>
+</body>
+
+</html>

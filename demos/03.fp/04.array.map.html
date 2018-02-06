@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    var users = [
+      { firstName: 'Mike', lastName: 'White' },
+      { firstName: 'Jennifer', lastName: 'Green' },
+      { firstName: 'Luke', lastName: 'Skywalker' },
+      { firstName: 'Jake', lastName: 'Smith' },
+    ]
+
+    function userToLabel(user) {
+      return user.firstName + user.lastName
+    }
+    var labels = users.map(userToLabel)
+
+    console.log(labels)
+  </script>
+</body>
+
+</html>

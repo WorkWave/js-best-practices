@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    var users = [
+      { firstName: 'Mike', lastName: 'White', age: 16 },
+      { firstName: 'Jennifer', lastName: 'Green', age: 53 },
+      { firstName: 'Luke', lastName: 'Skywalker', age: 27 },
+      { firstName: 'Jake', lastName: 'Smith', age: 48 },
+    ]
+
+    function filterByAge(user) {
+      return user.age >= 21
+    }
+    var filteredUsers = users.map(filterByAge)
+
+    console.log(filteredUsers)
+  </script>
+</body>
+
+</html>

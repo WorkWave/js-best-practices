@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    function formalGreeting(name) {
+      return 'Hello ' + name
+    }
+    function casualGreeting(name) {
+      return 'Sup ' + name
+    }
+    function male(name) {
+      return 'Mr. ' + name
+    }
+    function female(name) {
+      return 'Mrs. ' + name
+    }
+    function doctor(name) {
+      return 'Dr. ' + name
+    }
+    function phd(name) {
+      return name + ' PhD'
+    }
+    function md(name) {
+      return name + ' M.D.'
+    }
+
+    console.log(
+      formalGreeting(male(phd("Chet"))) // => "Hello Mr. Chet PhD"
+    );
+  </script>
+</body>
+
+</html>

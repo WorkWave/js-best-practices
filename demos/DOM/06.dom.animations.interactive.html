@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+  <style>
+    .black-box {
+      width: 40px;
+      height: 40px;
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="my-class black-box"></div>
+  <button class="fadeIn">Fade In</button>
+  <button class="fadeOut">Fade Out</button>
+  <script>
+    var el = document.querySelector(".my-class");
+    var fadeInBtn = document.querySelector(".fadeIn");
+    var fadeOutBtn = document.querySelector(".fadeOut");
+
+    fadeInBtn.addEventListener('click', function () {
+      fade(1000, el, true)
+    })
+
+    fadeOutBtn.addEventListener('click', function () {
+      fade(1000, el)
+    })
+
+
+    function fade(duration, targetElement, showIt) {
+      const start = window.performance.now();
+
+      function progessFade(now) {
+        const progress = now - start
+        targetElement.style.opacity = showIt ?
+          progress / duration :
+          1 - progress / duration;
+
+        if (progress < duration) {
+          window.requestAnimationFrame(progessFade);
+        }
+      }
+
+      window.requestAnimationFrame(progessFade);
+    }
+
+  </script>
+</body>
+
+</html>

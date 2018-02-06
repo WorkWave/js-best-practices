@@ -1,0 +1,13 @@
+{
+  "name": "js-best-practices",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "lr-http-server": "0.1.5",
+    "prettier": "1.10.2"
+  },
+  "scripts": {
+    "start": "lr-http-server -b -d ./demos -w **/*.js,**/*.css,**/*.html"
+  }
+}

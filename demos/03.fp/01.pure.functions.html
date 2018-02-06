@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    // pure function
+    function add10(a) {
+      return a + 10;
+    }
+
+    // impure function due to external non-constants values
+    var x = 10
+    function addx(a) {
+      return a + x;
+    }
+
+    // also impure due to side-effect
+    function setx(v) {
+      return x = v;
+    }
+  </script>
+</body>
+
+</html>

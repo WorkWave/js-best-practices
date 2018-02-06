@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <div class="my-class bar"></div>
+
+  <script>
+    var el = document.querySelector(".my-class");
+
+    el.classList.add('foo')
+    el.classList.remove('bar')
+    el.classList.toggle('baz')
+
+    // --------------------------------------
+    // modify the DOM propertie of an element
+    // without causing a browser redraw
+
+    // Get an attribute value
+    const value = el.value
+
+    // Set an attribute as an element property
+    el.value = 'foo'
+
+    // Remove an attribute
+    el.value = null
+
+    // --------------------------------------
+    // directly modify the HTML attributes of an element
+    // thus causing a browser redraw
+
+    // use them for attributes that don’t have a 
+    // corresponding DOM property (such as colspan)
+
+    // .getAttibute()
+    // .setAttribute()
+    // .removeAttribute()
+
+    // --------------------------------------
+    // CSS Styles
+
+    el.style.marginLeft = '2em'
+
+    // To get the computed values, use .window.getComputedStyle()
+    // returns a CSSStyleDeclaration 
+    window.getComputedStyle(el).getPropertyValue('margin-left')
+
+  </script>
+</body>
+
+</html>

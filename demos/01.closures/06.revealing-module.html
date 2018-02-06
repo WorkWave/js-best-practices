@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    var counter = (function () {
+      var privateCounter = 0;
+
+      function privateChangeBy(val) {
+        privateCounter += val;
+      }
+
+      function publicIncrement() {
+        privateChangeBy(1);
+      }
+
+      function publicDecrement() {
+        privateChangeBy(-1)
+      }
+
+      function publicValue() {
+        return privateCounter;
+      }
+
+      return {
+        increment: publicIncrement,
+        decrement: publicDecrement,
+        value: publicValue
+      };
+    }());
+
+    console.log(counter.value()); // logs 0
+    counter.increment();
+    counter.increment();
+    console.log(counter.value()); // logs 2
+    counter.decrement();
+    console.log(counter.value()); // logs 1
+  </script>
+</body>
+
+</html>

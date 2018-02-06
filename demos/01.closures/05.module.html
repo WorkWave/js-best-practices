@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    var counter = (function () {
+      var privateCounter = 0;
+
+      return {
+        increment: function () {
+          privateCounter += 1;
+        },
+        decrement: function () {
+          privateCounter -= 1;
+        },
+        value: function () {
+          return privateCounter;
+        }
+      };
+    }());
+
+    console.log(counter.value()); // logs 0
+    counter.increment();
+    counter.increment();
+    console.log(counter.value()); // logs 2
+    counter.decrement();
+    console.log(counter.value()); // logs 1
+  </script>
+</body>
+
+</html>

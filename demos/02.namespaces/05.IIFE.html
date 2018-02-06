@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    ; (function (namespace) {
+
+      // private 
+      var foo = "foo";
+      var bar = "bar";
+
+      function speak(msg) {
+        console.log("You said: " + msg);
+      };
+
+      // public 
+      namespace.foobar = "foobar";
+
+      namespace.say = function (msg) {
+        speak(msg);
+      };
+
+      namespace.sayHello = function () {
+        namespace.say("hello world");
+      };
+    }(window.namespace = window.namespace || {}));
+
+    // Outputs: foobar
+    console.log(namespace.foobar);
+
+    // Outputs: You said: hello world
+    namespace.sayHello();
+
+    // assigning new properties
+    namespace.foobar2 = "foobar";
+
+    // Outputs: foobar
+    console.log(namespace.foobar2);
+  </script>
+</body>
+
+</html>

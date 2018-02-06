@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    function add1(a) {
+      return a + 1;
+    }
+
+    function times2(a) {
+      return a * 2;
+    }
+
+    function compose(a, b) {
+      return function (c) {
+        return a(b(c));
+      }
+    }
+
+    var add1OfTimes2 = compose(add1, times2);
+    console.log(
+      add1OfTimes2(5) // => 11
+    );
+  </script>
+</body>
+
+</html>

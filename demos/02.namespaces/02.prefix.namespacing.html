@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    // add uniquely named global properties
+    var myApp_printHello = function () {
+      console.log('hello');
+    };
+
+    var myApp_printGoodbye = function () {
+      console.log('goodbye');
+    };
+
+    // use the namespace properties
+    myApp_printHello();
+    myApp_printGoodbye();
+  </script>
+</body>
+
+</html>

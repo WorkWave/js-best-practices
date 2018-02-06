@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    var myNamespace = (function () {
+      function method1() {
+        return 'Some data'
+      }
+
+      return {
+        name: 'Matteo',
+        getData: method1
+      }
+    }());
+
+    myNamespace.name = 'Mike'
+    console.log(myNamespace.name)
+    console.log(myNamespace.getData())
+  </script>
+</body>
+
+</html>

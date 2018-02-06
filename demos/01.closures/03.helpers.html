@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <a href="#" class="size-12">12</a>
+  <a href="#" class="size-24">14</a>
+  <a href="#" class="size-48">16</a>
+
+  <script>
+    function makeSizer(size) {
+      return function () {
+        document.body.style.fontSize = size + 'px';
+      };
+    }
+
+    var size12 = makeSizer(12);
+    var size24 = makeSizer(24);
+    var size48 = makeSizer(48);
+
+    document.getElementsByClassName('size-12')[0].onclick = size12;
+    document.getElementsByClassName('size-24')[0].onclick = size24;
+    document.getElementsByClassName('size-48')[0].onclick = size48;
+  </script>
+</body>
+
+</html>

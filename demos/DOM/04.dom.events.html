@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <form action="#" class="myForm">
+    <input type="text" class="myInput">
+  </form>
+  <div class="my-class bar"></div>
+
+  <script>
+    var el = document.querySelector(".my-class");
+
+    // only a single listener can be assigned
+    el.onclick = function onclick(event) {
+      console.log(event.type + ' got fired');
+    }
+
+    el.addEventListener('click', function (event) {
+      console.log(event.type + ' got fired');
+    })
+
+    el.addEventListener('click', function (event) {
+      console.log(event.type + ' got fired again');
+    })
+
+    // --------------------------------
+
+    const myInput = document.querySelector('.myInput');
+
+    myInput.addEventListener('change', function (event) {
+      // event.target refers to the element on which 
+      // the event was triggered
+      console.log('Input value: ' + event.target.value);
+    })
+
+    // --------------------------------
+
+    const myForm = document.querySelector('.myForm');
+
+    // automatically accounts for dynamically inserted children,
+    //  without having to bind new listeners to each.
+    myForm.addEventListener('change', function (event) {
+      const target = event.target;
+      // matches() use the same CSS selectors of querySelector()
+      if (target.matches('.myInput')) {
+        console.log(
+          'Form changed, global interceptor for[.myInput]: '
+          + target.value
+        );
+      }
+    })
+
+    myForm.addEventListener('submit', function (event) {
+      const name = this.querySelector('.myInput');
+
+      if (name.value === 'Donald Duck') {
+        console.warn('You gotta be kidding!');
+      } else {
+        console.log('Form submitted');
+      }
+
+      // prevent the default action to execute
+      event.preventDefault();
+    })
+  </script>
+</body>
+
+</html>

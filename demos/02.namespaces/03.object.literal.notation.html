@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    window.myApplication || (window.myApplication = {});
+
+    window.myApplication.doSomething = function () {
+      console.log('Do something')
+    }
+
+    window.myApplication.name = 'Matteo'
+    window.myApplication.age = 45
+    window.myApplication['action'] = function (data) {
+      console.log(data)
+    }
+  </script>
+</body>
+
+</html>

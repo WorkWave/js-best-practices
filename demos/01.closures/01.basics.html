@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    function helloFactory(name) {
+      return function sayHello() {
+        console.log(name);
+      };
+    }
+
+    var helloMatteo = helloFactory('Matteo');
+    helloMatteo();
+  </script>
+</body>
+
+</html>

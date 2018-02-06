@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <script>
+    var users = [
+      { firstName: 'Mike', lastName: 'White', age: 16 },
+      { firstName: 'Jennifer', lastName: 'Green', age: 53 },
+      { firstName: 'Luke', lastName: 'Skywalker', age: 27 },
+      { firstName: 'Jake', lastName: 'Smith', age: 48 },
+    ]
+
+    function sumUsersAge(totalAge, user) {
+      return totalAge + user.age
+    }
+    var totalUsersAge = users.reduce(sumUsersAge, 0)
+
+    console.log(totalUsersAge)
+  </script>
+</body>
+
+</html>

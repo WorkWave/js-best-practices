@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Closures</title>
+</head>
+
+<body>
+  <div class="my-class"></div>
+
+  <div class="user-panel main">
+    <input name="login" />
+  </div>
+
+  <script>
+    // get the first match (depth first)
+    // accept any valid CSS selector
+    var el = document.querySelector(".my-class");
+    // el can be null if no match has beem found
+    console.log(el)
+
+    var input = document.querySelector(
+      "div.user-panel.main input[name='login']"
+    );
+    console.log(input);
+
+    // --------------------
+
+    function getElements(cssSelectors) {
+      return document.querySelectorAll(cssSelectors);
+    }
+
+    getElements("div.note, div.alert");
+
+    // --------------------
+
+    // returns a non-live NodeList of element objects.
+    const elements1 = document.querySelectorAll('div');
+    // returns a live NodeList of element objects.
+    const elements2 = document.getElementsByTagName('div');
+    // document.getElementById
+    // document.getElementsByClassName
+    // document.getElementsByName
+
+    // The two lists are equal
+    elements1.length === elements2.length // true
+
+    // add a new DIV
+    const newElement = document.createElement('div');
+    document.body.appendChild(newElement);
+
+    // The two lists are now differents
+    elements1.length === elements2.length; // false
+
+
+    // --------------------
+
+    // a NodeList is not an array
+
+    function doSomethingWithEachElement(el) {
+      console.log(el.nodeType);
+      /*
+      el.children
+      el.firstElementChild
+      el.lastElementChild
+      el.previousElementSibling
+      el.nextElementSibling
+      el.childNodes
+      el.firstChild
+      el.lastChild
+      el.previousSibling
+      el.nextSibling
+      el.parentNode
+      el.parentElement
+      */
+    }
+    Array.prototype.forEach.call(elements1, doSomethingWithEachElement);
+    [].forEach.call(elements2, doSomethingWithEachElement);
+  </script>
+</body>
+
+</html>
